@@ -27,7 +27,6 @@ struct ContentView: View {
                         }
                     }
                     Spacer()
-                    .tint(.red)
                 }
             }
             Section("Results") {
