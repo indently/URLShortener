@@ -13,13 +13,13 @@ struct ContentView: View {
     var body: some View {
         Form() {
             Section("Link") {
-                TextEditor(text: $shortURL.longURL)
+                TextEditor(text: $shortURL.inputURL)
                     .frame(height: 100, alignment: .center)
                 
                 HStack {
                     Spacer()
                     Button("Submit") {
-                        if shortURL.longURL.isEmpty {
+                        if shortURL.inputURL.isEmpty {
                             shortURL.resultURL = "Please add a url..."
                         } else {
                             shortURL.resultURL = "Loading..."
@@ -37,7 +37,7 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     Button("Reset") {
-                        shortURL.longURL = ""
+                        shortURL.inputURL = ""
                         shortURL.resultURL = ""
                     }
                     .tint(.red)

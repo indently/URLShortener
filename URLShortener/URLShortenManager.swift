@@ -27,17 +27,18 @@ struct URLData : Codable {
     private let API_KEY = "2W2AHuEG1XPH17F7qIInwsVTfV4TQ9Ou5DQiq3e7xi6ANkqQpbI6OXB1QoJe"
     
     @Published var resultURL = ""
-    @Published var longURL = "https://www.youtube.com/watch?v=dIOEDC_maAY&ab_channel=CaravanPalace"
+    @Published var inputURL = "https://www.youtube.com/watch?v=dIOEDC_maAY&ab_channel=CaravanPalace"
 
-    
     func getData() {
-        guard let url = URL(string: "https://api.tinyurl.com/create?url=\(longURL)&api_token=\(API_KEY)") else {
+        // Step 1: Provide a URL
+        guard let url = URL(string: "https://api.tinyurl.com/create?url=\(inputURL)&api_token=\(API_KEY)") else {
             print("Invalid URL")
             return }
         
+        // Step 2: Create a URLSession to handle the URL
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
-            // Attempt to retrieve the data...
+            // Step 3: Retrieve the data from the URL
             guard let data = data else {
                 print("Could not retrieve data...")
                 
@@ -46,20 +47,18 @@ struct URLData : Codable {
                 }
                 return }
             
-            // Attempot do decode the data
+            // Step 4: Decode the data from the URL
             do {
                 let shortenedURL = try JSONDecoder().decode(URLShort.self, from: data)
-                
                 DispatchQueue.main.async {
                     print(shortenedURL)
                     self.resultURL = "https://tinyurl.com/" + shortenedURL.data.alias
                 }
             } catch {
-                print("\(error)")
-                
                 DispatchQueue.main.async {
                     self.resultURL = "Please enter a valid URL"
                 }
+                print("\(error)")
             }
         }.resume()
     }
