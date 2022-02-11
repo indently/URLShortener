@@ -11,6 +11,7 @@
 		7A06366227B6508300C7B954 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06366127B6508300C7B954 /* ContentView.swift */; };
 		7A06366427B6508400C7B954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A06366327B6508400C7B954 /* Assets.xcassets */; };
 		7A06366727B6508400C7B954 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A06366627B6508400C7B954 /* Preview Assets.xcassets */; };
+		7A06366E27B650A300C7B954 /* URLShortenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06366D27B650A300C7B954 /* URLShortenManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		7A06366127B6508300C7B954 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7A06366327B6508400C7B954 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A06366627B6508400C7B954 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7A06366D27B650A300C7B954 /* URLShortenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLShortenManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		7A06365E27B6508300C7B954 /* URLShortener */ = {
 			isa = PBXGroup;
 			children = (
+				7A06366D27B650A300C7B954 /* URLShortenManager.swift */,
 				7A06365F27B6508300C7B954 /* URLShortenerApp.swift */,
 				7A06366127B6508300C7B954 /* ContentView.swift */,
 				7A06366327B6508400C7B954 /* Assets.xcassets */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A06366E27B650A300C7B954 /* URLShortenManager.swift in Sources */,
 				7A06366227B6508300C7B954 /* ContentView.swift in Sources */,
 				7A06366027B6508300C7B954 /* URLShortenerApp.swift in Sources */,
 			);

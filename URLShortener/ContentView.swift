@@ -8,9 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var shortURL = URLShortenManager()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Form() {
+            Section("Link") {
+                TextEditor(text: $shortURL.longURL)
+                    .frame(height: 100, alignment: .center)
+                
+                HStack {
+                    Spacer()
+                    Button("Submit") {
+                        if shortURL.longURL.isEmpty {
+                            shortURL.resultURL = "Please add a url..."
+                        } else {
+                            shortURL.resultURL = "Loading..."
+                            shortURL.getData()
+                        }
+                    }
+                    Spacer()
+                    .tint(.red)
+                }
+            }
+            Section("Results") {
+                TextField("Your shortened link will appear here", text: $shortURL.resultURL)
+                    .textSelection(.enabled)
+                    .foregroundColor(.green)
+                HStack {
+                    Spacer()
+                    Button("Reset") {
+                        shortURL.longURL = ""
+                        shortURL.resultURL = ""
+                    }
+                    .tint(.red)
+                    Spacer()
+                }
+            }
+        }
+        .environmentObject(shortURL)
     }
 }
 
